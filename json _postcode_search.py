@@ -8,10 +8,19 @@ url_target = path + arguments
 
 print(url_target)
 
-#Make request and capture response
+# Make request and capture response
 
 response = requests.get(url_target)
 print(response)
+response_status_code = requests.get('http://api.postcodes.io/postcodes/')
+
+print(response_status_code.status_code)
+if response_status_code.status_code != 400:
+    print('successful')
+elif response_status_code.status_code != 200:
+    print('oops')
+else:
+    print('please try again')
 
 print(type(response))
 
