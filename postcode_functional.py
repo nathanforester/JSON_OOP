@@ -23,13 +23,15 @@ def return_values(postcode):
     response = requests.get(path + postcode)
     response_dict = response.json()
     value_dict = response_dict['result']
-    long = value_dict['longitude value']
-    lat = value_dict["latitude value"]
-    parl = ['parliamentary_constituency']
-    nuts = ['nuts value']
-    output = f'your long value is {long}, your lat value is {lat}, your parl is {parl}, your nuts is {nuts}'
+    # long = res_dict['longitude value']
+    # lat = res_dict["latitude value"]
+    parl = value_dict['parliamentary_constituency']
+    nuts = res_dict['nuts value']
+    output = f'your parl is {parl}' # , your nuts is {nuts}'
     return output
 
 
 user_input = input('please enter your postcode: ')
 print(postcode_checker(user_input), return_values(user_input))
+
+# 'your long value is {long}, your lat value is {lat},
